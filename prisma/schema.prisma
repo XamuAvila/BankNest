@@ -1,0 +1,23 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://root:root@localhost:5432/nestbank?schema=bank"
+}
+
+model UserAccount {
+  id          Int           @id @default(autoincrement())
+  email       String        @unique
+  name        String?
+  agencyId Int 
+  account  Int 
+  balance Decimal? @default(0)
+}
+
+
+
